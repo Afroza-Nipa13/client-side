@@ -36,11 +36,20 @@ const Navbar = () => {
     <li><NavLink>Home</NavLink></li>
     <li><NavLink>About Us</NavLink></li>
     <li><NavLink>Contact Us</NavLink></li>
+    {/* Only for applicant */}
     {
       user && <>
         <li><NavLink to='/myApplications'>My Applications</NavLink></li>
         
+        
         </>
+    }
+
+    {/* for recruiter */}
+    {
+      user && <>
+      <li><NavLink to='/addJob'>Add Job</NavLink></li>
+      </>
     }
   </>
   return (
