@@ -3,6 +3,7 @@ import ApplicationListRaw from './ApplicationListRaw';
 
 const ApplicationList = ({myApplicationsPromise}) => {
     const myApplications = use(myApplicationsPromise);
+    
     const [applicants, setApplicants]= useState(myApplications)
     console.log(myApplications)
     return (

@@ -21,7 +21,7 @@ const ApplicationListRaw = ({ application, index, applicants, setApplicants }) =
             if (result.isConfirmed) {
                 // delete from database
                 try {
-                    const response = await axios.delete(`http://localhost:3000/applications/${_id}`)
+                    const response = await axios.delete(`https://server-side-iscf44ope-afrozanipas-projects.vercel.app/applications/${_id}`)
                    
                     if (response.data) {
 

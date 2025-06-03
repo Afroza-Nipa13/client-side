@@ -1,34 +1,56 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddJob = () => {
-    const {user}= useAuth()
+    const { user } = useAuth()
     console.log(user)
- const handleAddJob=(e)=>{
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form)
-    const data =Object.fromEntries(formData.entries())
-    
-    // salaryRange object banai
-    const { min, max,currency,...newJob}= data;
-     newJob.salaryRange = {min, max, currency}
+    const handleAddJob = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form)
+        const data = Object.fromEntries(formData.entries())
+        console.log(data)
 
-    // Requirements making clean array
-   
-    const requirementsString= newJob.requirements
-    const requirementsWithSpace = requirementsString.split(',')
-    const reqirementsClean = requirementsWithSpace.map(req=> req.trim())
-    newJob.requirements =reqirementsClean
-    console.log(newJob)
+        // salaryRange object banai
+        const { min, max, currency, ...newJob } = data;
+        newJob.salaryRange = { min, max, currency }
 
-    // Responsibility making clean array
-    newJob.responsibilities=newJob.responsibilities.split(',').map(res=>res.trim())
-    console.log(newJob)
-    
-    // checking shob property er data pacchi ki na
-    console.log()
- }   
+        // Requirements making clean array
+
+        const requirementsString = newJob.requirements
+        const requirementsWithSpace = requirementsString.split(',')
+        const reqirementsClean = requirementsWithSpace.map(req => req.trim())
+        newJob.requirements = reqirementsClean
+        console.log(newJob)
+
+        // Responsibility making clean array
+        newJob.responsibilities = newJob.responsibilities.split(',').map(res => res.trim())
+        console.log(newJob)
+
+        // checking shob property er data pacchi ki na
+        console.log(Object.keys(newJob).length)
+
+        // jehetu ata newJOb so status "active" kore dibo
+        newJob.status = "active";
+
+        // save to database
+        axios.post('https://server-side-iscf44ope-afrozanipas-projects.vercel.app/jobs', newJob).then(res => {
+            console.log(res)
+            if (res.data.insertedId) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your Job has been saved updated",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <div className='w-full mx-auto text-center my-8'>
             <h1 className='text-5xl font-bold mb-5'>Add Job</h1>
@@ -139,7 +161,7 @@ const AddJob = () => {
 
 
                     </fieldset>
-                        <input type='submit' className='btn text-xl font-bold w-full' value='Add Job' />
+                    <input type='submit' className='btn text-xl font-bold w-full' value='Add Job' />
                 </form>
             </div>
         </div >

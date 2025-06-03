@@ -1,9 +1,9 @@
-import React, {  use } from 'react';
+
 import JobCard from '../shared/JobCard';
 
 
-const HotJobs = ({jobsPromise}) => {
-    const jobs = use(jobsPromise)
+const HotJobs = ({jobs}) => {
+   
     return (
         <div>
             <h2>HOT Jobs For You {jobs.length}</h2>
