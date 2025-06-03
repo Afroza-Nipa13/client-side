@@ -36,7 +36,7 @@ const AddJob = () => {
         newJob.status = "active";
 
         // save to database
-        axios.post('https://server-side-iscf44ope-afrozanipas-projects.vercel.app/jobs', newJob).then(res => {
+        axios.post('https://server-side-lake.vercel.app/jobs', newJob).then(res => {
             console.log(res)
             if (res.data.insertedId) {
                 Swal.fire({

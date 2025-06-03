@@ -3,7 +3,7 @@ import React from 'react';
 import useAuth from './useAuth';
 
 const axiosInstance = axios.create({
-    baseURL:'https://server-side-iscf44ope-afrozanipas-projects.vercel.app'
+    baseURL:'https://server-side-lake.vercel.app'
 })
 
 const useAxiosToken = () => {

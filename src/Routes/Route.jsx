@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         { path:'/register', Component:Register},
         { path:'/signin', Component:SignIn},
         { path:'/jobs/:id',
-          loader:({params})=>fetch(`https://server-side-iscf44ope-afrozanipas-projects.vercel.app/jobs/${params.id}`),
+          loader:({params})=>fetch(`https://server-side-lake.vercel.app/jobs/${params.id}`),
           Component:JobDetails},
           { path:'/jobapply/:id', element:<PrivetProvider>
             <JobApply></JobApply>
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
           },
           {
             path:'/applications/:job_id',
-            loader:({params})=>fetch(`https://server-side-iscf44ope-afrozanipas-projects.vercel.app/applications/job/${params.job_id}`),
+            loader:({params})=>fetch(`https://server-side-lake.vercel.app/applications/job/${params.job_id}`),
             element:<PrivetProvider>
               <ViewApplications></ViewApplications>
             </PrivetProvider>

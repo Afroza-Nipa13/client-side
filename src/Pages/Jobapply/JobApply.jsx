@@ -23,7 +23,7 @@ const JobApply = () => {
         }
 
         // save in database
-        axios.post('https://server-side-iscf44ope-afrozanipas-projects.vercel.app/applications', application)
+        axios.post('https://server-side-lake.vercel.app/applications', application)
             .then(res => {
                 if (res.data.insertedId) {
 

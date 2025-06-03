@@ -1,6 +1,6 @@
 export const myApplicationsPromise =(email,accessToken)=> { 
     
-return fetch(`https://server-side-iscf44ope-afrozanipas-projects.vercel.app/applications?email=${email}`,{
+return fetch(`https://server-side-lake.vercel.app/applications?email=${email}`,{
 
     headers:{
         authorization:`Bearer ${accessToken}`

@@ -9,7 +9,7 @@ const ViewApplications = () => {
     console.log(applications)
     const handleUpdateStatus = (e, app_id) => {
         console.log(e.target.value, app_id)
-        axios.patch(`https://server-side-iscf44ope-afrozanipas-projects.vercel.app/applications/${app_id}`, {
+        axios.patch(`https://server-side-lake.vercel.app/applications/${app_id}`, {
             status: e.target.value
         })
             .then(res => {

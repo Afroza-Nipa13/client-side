@@ -10,7 +10,7 @@ const [jobs, setJobs]=useState([]);
 
 useEffect(()=>{
     setLoading(true)
-    const jobsPromise = fetch('https://server-side-iscf44ope-afrozanipas-projects.vercel.app/jobs')
+    const jobsPromise = fetch('https://server-side-lake.vercel.app/jobs')
     .then(res=>res.json()).then(data=>{
         console.log("data found", data)
         setJobs(data)
